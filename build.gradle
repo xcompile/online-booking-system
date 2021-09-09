@@ -7,8 +7,8 @@ plugins {
 group 'com.hongkongcoder.salon'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
 repositories {
     mavenCentral()
@@ -25,14 +25,20 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
     // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.10.5'
     implementation group: 'io.springfox', name: 'springfox-swagger-common', version: '2.10.5'
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+     runtimeOnly 'org.postgresql:postgresql'
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
