@@ -7,8 +7,16 @@ spring:
     password: salon
   sql:
     init:
-      platform: postgresql
+      platform:   postgresql
       mode: always   
+  jpa:
+    properties:
+      jdbc:
+        lob:
+          non_contextual_creation:true
+    hibernate:
+      ddl-auto: update
+      
       
 # meta information about the salon
 salon:
