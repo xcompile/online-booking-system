@@ -10,6 +10,8 @@ services:
       POSTGRES_USER: salon
       POSTGRES_PASSWORD: salon
       POSTGRES_DB: salon-db
+    ports:
+     - "5432:5432"
     expose:
       - 5432
 
