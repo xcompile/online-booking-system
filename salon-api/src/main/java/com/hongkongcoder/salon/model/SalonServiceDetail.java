@@ -10,28 +10,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.ToString;
 
 
 @Entity
 @Table(name="salon_service_detail")
 @Data
+@ToString
 public class SalonServiceDetail {
 
+	public SalonServiceDetail() {
+		
+	}
+	
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
- 
-    @Column(length = 255, nullable = true)
+    @Column(length = 255)
     private String name;
-
-    @Column(length = 255, nullable = true)
+    @Column(length = 255)
     private String description;
-
-    @Column(nullable = true)
     private BigDecimal price;
-    
-    @Column(name="time_in_minutes",nullable = true)
+    @Column(name="time_in_minutes")
     private Integer timeInMinutes;
 
 

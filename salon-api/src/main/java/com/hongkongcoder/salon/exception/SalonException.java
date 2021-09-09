@@ -1,4 +1,4 @@
-package com.hongkongcoder.salon.model;
+package com.hongkongcoder.salon.exception;
 
 public class SalonException extends RuntimeException{
 

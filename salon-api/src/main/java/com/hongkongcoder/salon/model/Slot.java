@@ -1,6 +1,8 @@
 package com.hongkongcoder.salon.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,44 +10,50 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name="slot")
 @Data
 public class Slot {
     
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	enum SlotStatus{
+		AVAILABLE,
+		OPEN,
+		CONFIRMED,
+		CANCELLED
+	}
+	
+	public Slot() {
+		
+	}
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name="confirmed_at",nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date confirmedAt;
+    private LocalDateTime confirmedAt;
+    private LocalDateTime lockedAt;
+    private LocalDateTime slotFor;
+    private SlotStatus status;
     
-    @Column(name="locked_at",nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lockedAt;
-    
-    @Column(name="slot_for",nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date slotFor;
-    
-    @Column(name="status",nullable = true)
-    private Integer status;
-    
-    @Column(name="stylist_name",length=255,nullable = true)
+    @Column(length=255)
     private String stylistName;
     
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = SalonServiceDetail.class)
-    @JoinColumn(name = "selected_service_id")
-    private SalonServiceDetail selectedService;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<SalonServiceDetail> availableService;
     
+    @ManyToOne
+    private SalonServiceDetail selectedService;
     
     
 }
