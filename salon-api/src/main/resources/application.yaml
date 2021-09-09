@@ -12,8 +12,9 @@ spring:
       
 # meta information about the salon
 salon:
-  address: "AR Salon and Day Spa Services"
-  city: "1234 Main Street, Anytown"
+  name: "AR Salon and Day Spa Services"
+  address: "1234 Main Street, Anytown"
+  city: "Anycity"
   state: "ND"
   zipcode: "58201"  
   phone: "555-123-4567"
