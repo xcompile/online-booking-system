@@ -3,9 +3,9 @@ package com.hongkongcoder.salon.model;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Column;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -42,7 +42,7 @@ public class Slot {
     @Transient
     private Set<SalonServiceDetail> availableService;
 
-    @Column(name="selected_service_id")
+    @Column("selected_service_id")
     private Long selectedServiceId;
 
 	public SlotStatus getStatus() {

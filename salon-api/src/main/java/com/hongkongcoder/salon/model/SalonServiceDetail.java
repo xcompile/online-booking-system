@@ -2,7 +2,7 @@ package com.hongkongcoder.salon.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
