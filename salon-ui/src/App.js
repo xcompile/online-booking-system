@@ -8,7 +8,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navbar bg="dark" variant="dark">
+      </header>
+        <Navbar bg="dark" variant="dark" expand="true" fixed="true">
           <Container>
           
             <Navbar.Brand href="#home">
@@ -23,7 +24,14 @@ function App() {
               </Navbar.Brand>
           </Container>
         </Navbar>
-      </header>
+        <main role="main" className="container">
+                <div className="padding-container">
+                    <p>
+                        Edit <code>src/App.js</code> and save to reload.
+                    </p>
+
+                </div>
+            </main>
     </div>
   );
 }
