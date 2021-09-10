@@ -1,10 +1,7 @@
 server:
   port: 8081
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/salon-db
-    username: salon
-    password: salon
+    
   sql:
     init:
       platform:   postgresql
@@ -16,6 +13,11 @@ spring:
           non_contextual_creation:true
     hibernate:
       ddl-auto: update
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/salon-db
+    username: salon
+    password: salon
+    
       
       
 # meta information about the salon

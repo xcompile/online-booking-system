@@ -2,24 +2,13 @@ package com.hongkongcoder.salon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Salon API", version = "2.0", description = "Salon Controlling"))
-public class SalonApplication implements WebMvcConfigurer{
+public class SalonApplication {
 
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SalonApplication.class, args);
 	}
-	
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		// TODO Auto-generated method stub
-		registry.addViewController("/").setViewName("home");
-	}
+
 }
