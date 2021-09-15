@@ -1,16 +1,21 @@
 import { Navbar } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
+import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
+import LoadingIndicator from './common/loading-indicator/LoadingIndicator';
 import NotificationComponent from './common/notification/NotificationComponent';
 import logo from './logo.svg';
 import ChooseService from './salon-services/ChooseService';
-import LoadingIndicator from './common/loading-indicator/LoadingIndicator';
 
 function App() {
+  const wrapper = {
+    paddingTop:"0.5rem"
+  };
+
   return (
     <div className="App">
       <header>
         <Navbar bg="dark" variant="dark" expand="true" fixed="true">
+
           <Container>
 
             <Navbar.Brand href="#home">
@@ -27,11 +32,15 @@ function App() {
         </Navbar>
       </header>
       <main role="main" className="container">
-        <div className="padding-container">
-          <LoadingIndicator />
-          <NotificationComponent />
-          <ChooseService></ChooseService>
-        </div>
+        <Container style={wrapper}>
+          <Row>
+            <Col>
+              <LoadingIndicator />
+              <NotificationComponent />
+              <ChooseService></ChooseService>
+            </Col>
+          </Row>
+        </Container>
       </main>
     </div>
   );
